@@ -1,0 +1,13 @@
+# Local configuration and secrets: only templates are tracked.
+env.local
+.env
+.env.*
+!.env.example
+# Generated and local state.
+.factory/
+CLAUDE-SECURITY-*/
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/
+.venv/
