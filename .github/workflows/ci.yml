@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  docs-gates:
+    name: Knowledge, links and repository health
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+      - run: ./tools/knowledge/knowledge-check
+      - name: doc-links (with --diff on pull requests)
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          if [[ -n "$BASE_REF" ]]; then ./tools/knowledge/doc-links --diff "origin/$BASE_REF"; else ./tools/knowledge/doc-links; fi
+      - run: ./tools/repo-health/repo-health
+      - run: python3 tools/knowledge/tests/test_doc_links.py && python3 .claude/hooks/test_hooks.py
+
+  # Add your build and test job here.
+
+  secret-scan:
+    runs-on: ubuntu-latest
+    # On a pull request the action lists the PR's commits through the API.
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  dependency-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: google/osv-scanner-action/osv-scanner-action@98b584ee2ed2da3935ccce10e06739d54cdcd20b # v2.0.0
+        with:
+          scan-args: --recursive ./
+
+  sast-scan:
+    runs-on: ubuntu-latest
+    container: semgrep/semgrep
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - run: semgrep scan --config p/owasp-top-ten --error
+# Keep action revisions pinned; review upstream changes before updating them.

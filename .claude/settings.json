@@ -1,0 +1,21 @@
+{
+  "hooks": {
+    "SessionStart": [
+      { "matcher": "startup|resume|compact",
+        "hooks": [{ "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/session-start.py\"" }] }
+    ],
+    "PreToolUse": [
+      { "matcher": "Bash",
+        "hooks": [{ "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/guard-bash.py\"" }] },
+      { "matcher": "Read|Edit|Write|Grep",
+        "hooks": [{ "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/guard-path.py\"" }] }
+    ],
+    "PostToolUse": [
+      { "matcher": "Edit|Write",
+        "hooks": [{ "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/after-edit.py\"" }] }
+    ],
+    "Stop": [
+      { "hooks": [{ "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/sign-off.py\"" }] }
+    ]
+  }
+}

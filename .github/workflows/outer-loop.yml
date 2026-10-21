@@ -1,0 +1,25 @@
+# Optional: the outer loop on GitHub's schedule. Off until the repository variable
+# OUTER_LOOP_ENABLED is "true" and the secret CLAUDE_CODE_OAUTH_TOKEN exists. Read-only by design:
+# the prompts in loops/prompts/ only open issues.
+name: Outer loop
+on:
+  schedule:
+    - cron: "15 5 * * *"     # daily health and docs
+    - cron: "0 6 * * 1"      # weekly security
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+jobs:
+  outer:
+    if: vars.OUTER_LOOP_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+      - uses: anthropics/claude-code-action@a5a423f75c251dcbff8a74e99f83b2cb03c72bfa # v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: ${{ github.event.schedule == '0 6 * * 1' && 'Follow loops/prompts/security.md.' || 'Follow loops/prompts/outer.md, then loops/prompts/docs.md.' }}
+          claude_args: '--allowedTools "Read,Grep,Glob,Bash(git log *),Bash(tools/*),Bash(gh issue *),Bash(gh run list *)"'
