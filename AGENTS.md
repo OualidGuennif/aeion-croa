@@ -1,8 +1,8 @@
 # Agent instructions
 
-This repository was started from **Æion Factory**: a repository prepared for agentic development
-(rules, knowledge, skills, hooks, loops). Replace this paragraph with what *your* project is and
-who decides.
+**Æion CROA** is an independent evidence-led audit kit based on CROA v1.0.1 and started from
+**Æion Factory**. The owner decides scope. The pinned CROA specification supplies audit references;
+this kit collects and checks evidence without implementing an execution governor or certification.
 
 **Precedence.** Instructions that existed in this repository before the Factory, and anything the
 owner says, win over the Factory's defaults. When they conflict, keep theirs and note it in
@@ -20,6 +20,8 @@ tech-watch/   the technical watch: method, and pending dated packages
 loops/        orchestrator.sh (inner, middle, outer, docs, security, watch, retro), prompts, schedules,
               the issue protocol, the Decisions API client (off)
 tools/        knowledge-check, doc-links, repo-health, local language-server plugins
+catalog/      source-linked audit questions and pinned CROA provenance
+integrations/ optional croa-audit skill callable from another Factory workspace
 .claude/      hooks, skills, path-scoped rules, hookify examples
 ```
 
@@ -31,12 +33,14 @@ python3 tools/knowledge/tests/test_doc_links.py && python3 .claude/hooks/test_ho
 loops/orchestrator.sh outer --dry-run        # shows the command a loop would run, runs nothing
 ```
 
-Add your project's own build and test commands here, copied from CI.
+Audit tests: `python3 -m unittest discover -s tools/croa/tests -v`.
+Usage and exit codes: `knowledge/operations/croa-audit.md`.
 
 ## Load by task
 
 | Task | Open first |
 | --- | --- |
+| CROA audit | `knowledge/components/croa-audit.md`, then `integrations/croa-audit/SKILL.md` |
 | Any change | `knowledge/index.md`, then the doc of the area; skill `plan` |
 | A feature or component | `knowledge/policies/specs-first.md`; skill `spec` |
 | Security-sensitive code | `knowledge/policies/security.md`; skill `security-scan` |
@@ -52,6 +56,7 @@ Add your project's own build and test commands here, copied from CI.
 3. The outer loop only reads. No loop deploys, restarts, migrates data or changes a setting.
 4. Uncertain, missing or failed means *no*: fail closed.
 5. English in code, comments, docs and commits.
+6. Unknown stays unknown. File hashes and pass counts do not establish a CROA conformance level.
 
 ## How code is written here
 

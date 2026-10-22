@@ -26,7 +26,12 @@ jobs:
       - run: ./tools/repo-health/repo-health
       - run: python3 tools/knowledge/tests/test_doc_links.py && python3 .claude/hooks/test_hooks.py
 
-  # Add your build and test job here.
+  audit-tests:
+    name: CROA audit packet and evidence tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - run: python3 -m unittest discover -s tools/croa/tests -v
 
   secret-scan:
     runs-on: ubuntu-latest

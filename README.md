@@ -1,56 +1,40 @@
-# Æion Factory
+# Æion CROA
 
-A repository prepared for agentic development, before there is any product code in it: the rules
-an agent reads first, a knowledge base bound to the code, skills, hooks, three loops (inner,
-middle, outer) and a technical watch — all checked, all small, all optional beyond the first phase.
+An independent, evidence-led audit kit for applying
+[CROA — Constrained Reachability Orchestration Architecture](https://www.croaframework.org/).
+Built on [Æion Factory](https://github.com/OualidGuennif/aeion-factory).
 
-Built for Claude Code (CLI or desktop) with its plugins; other agents can follow the files as
-documents. Start with one phase and keep the parts that solve a real problem.
+CROA is the work of **The CROA Project**, including **Yasmine Durand, Darrin Smith and
+Sylvain Durand**. This kit adapts their work into audit questions, an evidence workflow and an
+optional agent skill. It is not an official CROA product or certification.
 
-## Start here
+## Start an audit
 
-| You want to | Read |
-| --- | --- |
-| Understand the approach in seven phases | [`efficiency/00-EFFICIENCY.md`](efficiency/00-EFFICIENCY.md) |
-| Remember the seven principles | [CRAFTED](efficiency/CRAFTED.md) |
-| Use this as a new project | the steps below |
-| Apply it to an existing repository | give your agent `efficiency/00-EFFICIENCY.md` and one chapter at a time (skill `adopt`) |
-| Every command | [`command.md`](command.md) |
-| How an agent works here | [`Workflow_Agent.md`](Workflow_Agent.md) |
-| The same, for humans, as slides | [HTML slides](docs/slides/workflow-human.html) |
-
-## A new project from the Factory
+Python 3.9+ on Linux, macOS or WSL and the standard library are sufficient. The CLI reads a packet and staged
+evidence; it never runs the audited repository or contacts a model/provider.
 
 ```bash
-git clone https://github.com/OualidGuennif/aeion-factory.git my-project
-cd my-project
-tools/knowledge/knowledge-check
-tools/knowledge/doc-links
-tools/repo-health/repo-health
+mkdir -p audits/example/evidence
+python3 tools/croa/audit.py init --system example > audits/example/audit.json
+python3 tools/croa/audit.py validate audits/example/audit.json
+python3 tools/croa/audit.py report audits/example/audit.json
 ```
 
-Git and Python 3 run these checks; shell tools target macOS, Linux or WSL. This is a checkout of
-Factory: use GitHub's **Use this template** to create your own repository. Then adapt `AGENTS.md`,
-add your build/test commands, and follow phase 1. Install only the plugins you need.
+The initial report exits **2** because nothing has been assessed. Follow the
+[audit runbook](knowledge/operations/croa-audit.md) to record scope, findings and sanitized evidence.
+Even a complete packet remains an assessment record; the CLI never awards a conformance level.
 
-Optional loops and integrations stay off by default. The public export contains no environment
-files, including templates; configure optional services yourself only after reviewing their docs.
+## Call it from Factory
 
-## What is inside
+Load [the croa-audit skill](integrations/croa-audit/SKILL.md) from a separately reviewed checkout.
+[Integration instructions](knowledge/operations/croa-audit.md#calling-from-factory) cover Claude
+Code and Codex discovery. Factory keeps its workflow; this repo owns the catalog, tools and
+references. No service or installation into the target is required.
 
-```
-AGENTS.md / CLAUDE.md   the router an agent reads first (CLAUDE.md links to it)
-command.md              every command: skills, tools, loops, plugins, git flow
-Workflow_Agent.md       the order of work for an agent
-docs/slides/            the human workflow as HTML slides
-efficiency/             the seven-phase guide: quarks → atoms → molecules → cells → organisms → constellations → galaxy
-knowledge/              policies, components, decisions, operations, references (OKF format)
-work/current.md         open tasks only
-tech-watch/             the technical watch method and its dated packages
-loops/                  the orchestrator, prompts, model routing, schedules, issue protocol, Decisions API client
-tools/                  knowledge-check, doc-links, repo-health, local language-server plugins
-.claude/                hooks, skills, path-scoped rules, hookify examples
-.github/workflows/      CI (docs gates and security scans); optional PR review and outer loop
-```
+## References and checks
 
-License: [MIT](LICENSE). Credits: [CREDITS.md](CREDITS.md). Security: [SECURITY.md](SECURITY.md).
+- [Audit contract](knowledge/components/croa-audit.md), [sources and reading notes](knowledge/references/croa-v1.0.1.md).
+- [CROA v1.0.1](https://github.com/CROA-Project/CROA/tree/v1.0.1), pinned to
+  `4d59192da9a0d00412c9d2ccb9e5ab68176803ff`; [white paper DOI](https://doi.org/10.5281/zenodo.22310276).
+- [Credits and adaptations](CREDITS.md), [licensing by content](LICENSE).
+- Run `python3 -m unittest discover -s tools/croa/tests -v` and the checks in [AGENTS.md](AGENTS.md).

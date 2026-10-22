@@ -12,5 +12,6 @@ generated:
 
 | Concept | Status | Notes |
 | --- | --- | --- |
+| [CROA audit](croa-audit.md) | stable | packet workflow and Factory invocation |
 | [Build and test](build-and-test.md) | stable | every gate, and the language servers |
 | [The loops](loops.md) | stable | inner, middle, outer: jobs, schedules, safety |

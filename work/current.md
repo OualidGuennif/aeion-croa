@@ -1,12 +1,8 @@
 # Current work
 
-Task state only. One entry per open task, newest first. At most 150 lines, 10 per entry.
-Finished tasks are deleted: the commit message and knowledge/ keep what matters.
-Status: ACTIVE, WAITING-OWNER, MEASURING, BLOCKED, BACKLOG.
-
-## Adapt the Factory to this project — ACTIVE
-- Owner decision: <date>, started from Æion Factory (knowledge/decisions/ADR-001).
-- State: the structure is in place; AGENTS.md still describes the Factory, not the project.
-- Next: write the project's paragraph and build commands in AGENTS.md; walk efficiency/ phases 1 to 7 (who: agent, with the owner's yes per phase).
+## Build and publish the CROA audit kit — ACTIVE
+- Owner decision: 2026-10-23, create this separate repository, preserve upstream credits and make the audit callable from Factory.
+- State: source-linked catalog, callable skill and CLI implemented; 17 audit tests, 137 hook tests and 10 doc-link tests pass locally.
+- Next: independent PR review, CI and publication; private by default.
 - Blocker: none.
-- Evidence: efficiency/00-EFFICIENCY.md
+- Evidence: knowledge/components/croa-audit.md; catalog/upstream.json.

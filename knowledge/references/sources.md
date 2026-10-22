@@ -14,6 +14,10 @@ sources:
 
 Æion Factory is an orchestration layer over other people's ideas and tools. Thank you.
 
+Project-specific sources, licenses and adaptations for this audit kit are recorded in
+[CROA v1.0.1](croa-v1.0.1.md) and [the project credits](../../CREDITS.md). The references below
+remain the unchanged sources behind the inherited Factory method.
+
 ## Tools and plugins
 
 - **Anthropic, Claude Code and its official plugins** — `hookify` (hook rules from Markdown and from

@@ -1,0 +1,350 @@
+{
+  "schema_version": "aeion.croa.catalog/v1",
+  "license": "CC-BY-4.0",
+  "attribution": "Adapted from The CROA Project, CROA v1.0.1 (Yasmine Durand, Darrin Smith, Sylvain Durand). Grouping and questions are AEion adaptations, not an official or exhaustive conformance profile.",
+  "upstream": {
+    "project": "CROA-Project/CROA",
+    "version": "v1.0.1",
+    "commit": "4d59192da9a0d00412c9d2ccb9e5ab68176803ff"
+  },
+  "checks": [
+    {
+      "id": "SCOPE",
+      "title": "Bounded subject and assessment basis",
+      "question": "Name the deployed system, revision, invariant-set version, audit period, agents, governed systems, action classes and exclusions. State assessor independence and distinguish a source review from deployment evidence.",
+      "source_path": "spec/parts/part-6-conformance-and-maturity.md",
+      "section": "28.1; 29.1; 29.4",
+      "required_kinds": [
+        "assessment"
+      ],
+      "allow_not_applicable": false,
+      "maps_to": [
+        "TB-1",
+        "TB-2",
+        "TB-3",
+        "TB-4"
+      ]
+    },
+    {
+      "id": "C1",
+      "title": "Policy authority",
+      "question": "Identify the sole policy issuer, signed/versioned policy and authorization artifacts, revocation/key lifecycle and protected change path. Demonstrate rejection of modified or unavailable/expired policy without granting an agent policy-write authority.",
+      "source_path": "spec/parts/part-2-reference-architecture.md",
+      "section": "4.3; 5.4",
+      "required_kinds": [
+        "configuration",
+        "executed_test"
+      ],
+      "allow_not_applicable": false,
+      "maps_to": [
+        "I4",
+        "TB-2",
+        "P3"
+      ]
+    },
+    {
+      "id": "C2",
+      "title": "Deterministic execution governor",
+      "question": "Trace admission and RBAC, C3 grounding, pinned policy, invariant/trajectory state and analyzer version to a deterministic decision. Demonstrate identical verdicts for identical complete inputs and fail-deny for uncertainty; stated intent cannot authorize an action.",
+      "source_path": "spec/parts/part-2-reference-architecture.md",
+      "section": "4.4.2; 4.9; 5.2; 5.5",
+      "required_kinds": [
+        "executed_test",
+        "c5_log"
+      ],
+      "allow_not_applicable": false,
+      "maps_to": [
+        "I2",
+        "I5",
+        "P-F"
+      ]
+    },
+    {
+      "id": "C3",
+      "title": "Grounded context and path resolution",
+      "question": "Identify authenticated subjects and the Federated Context Registry, its ownership/freshness and canonical targets. Demonstrate that unregistered or unauthorized context stops evaluation and that corrective responses do not disclose unauthorized entities.",
+      "source_path": "spec/parts/part-2-reference-architecture.md",
+      "section": "4.5; 4.9.1",
+      "required_kinds": [
+        "configuration",
+        "executed_test"
+      ],
+      "allow_not_applicable": false,
+      "maps_to": [
+        "I1",
+        "TB-1"
+      ]
+    },
+    {
+      "id": "C4",
+      "title": "Invariant and trajectory state",
+      "question": "Inventory enterprise invariants and E1/E2/E3 evaluation, TP-W/TP-C/TP-X applicability, session lifecycle and state availability. Test cumulative and cross-session behavior where relevant, plus serialization per accumulation key under concurrency.",
+      "source_path": "spec/parts/part-2-reference-architecture.md",
+      "section": "4.6; 4.6.3; 5.9",
+      "required_kinds": [
+        "configuration",
+        "executed_test",
+        "c5_log"
+      ],
+      "allow_not_applicable": false,
+      "maps_to": [
+        "I1",
+        "I8",
+        "P-C"
+      ]
+    },
+    {
+      "id": "C5",
+      "title": "Independent durable audit and reconstruction",
+      "question": "Show append-only storage controls, all decision inputs, typed correlation, signatures/chain verification, external corroboration and lifecycle retention. Demonstrate durable local commitment before a governed transition and fail-deny on unavailable recording. A hash chain alone does not prove capture completeness.",
+      "source_path": "spec/parts/part-2-reference-architecture.md",
+      "section": "4.7; 5.3; 5.6; 5.7",
+      "required_kinds": [
+        "configuration",
+        "executed_test",
+        "c5_log"
+      ],
+      "allow_not_applicable": false,
+      "maps_to": [
+        "I3",
+        "I6",
+        "I7",
+        "TB-4",
+        "P2",
+        "P-E"
+      ]
+    },
+    {
+      "id": "C6",
+      "title": "Execution firewall and atomic redemption",
+      "question": "Trace ECC verification, subject/scope/expiry/invariant-version checks and shared linearizable single-use redemption across all enforcement instances. Corroborate C6 admission with governed-system logs; a permit or compiled ECC is not a completed effect.",
+      "source_path": "spec/parts/part-2-reference-architecture.md",
+      "section": "4.8; 6.2",
+      "required_kinds": [
+        "executed_test",
+        "c5_log",
+        "system_log"
+      ],
+      "allow_not_applicable": false,
+      "maps_to": [
+        "I1",
+        "TB-3",
+        "P4",
+        "P-A",
+        "P-D"
+      ]
+    },
+    {
+      "id": "C7",
+      "title": "Bound signed execution contract",
+      "question": "Show that a valid C2 permit is required before compilation, that ECC content/scope/subject/versions and antecedent permit are bound and signed, and that compilation cannot widen exception authority. Reject forged or unauthorized compilation paths.",
+      "source_path": "spec/parts/part-2-reference-architecture.md",
+      "section": "4.4.1; 4.4.3",
+      "required_kinds": [
+        "configuration",
+        "executed_test",
+        "c5_log"
+      ],
+      "allow_not_applicable": false,
+      "maps_to": [
+        "I1",
+        "I8",
+        "P-B"
+      ]
+    },
+    {
+      "id": "DEPLOYMENT",
+      "title": "All seven deployment properties",
+      "question": "Assess P1-P7: four boundaries, C5 independence, C1 exclusivity, real network-enforced sole C6 passage, Agent Surface isolation, session integrity and audit availability. Test bypass paths and loss of dependencies. Apply production HA/RTO/RPO/sizing requirements or explicitly record evaluation limitations.",
+      "source_path": "spec/parts/part-4-deployment-models.md",
+      "section": "18.1",
+      "required_kinds": [
+        "configuration",
+        "executed_test",
+        "system_log"
+      ],
+      "allow_not_applicable": false,
+      "maps_to": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5",
+        "P6",
+        "P7"
+      ]
+    },
+    {
+      "id": "THREATS",
+      "title": "Threat coverage and additional negative tests",
+      "question": "Assess all TH-1 through TH-11, RTM and C-22 through C-25, relevant threat-specific tests, positive controls, ECC-integrity and repeated concurrency tests. Include unconditional TH-1 and applicable AQL/delegation batteries. NT-001 through NT-008 alone are not exhaustive.",
+      "source_path": "spec/parts/part-6-conformance-and-maturity.md",
+      "section": "29.2; 29.3",
+      "required_kinds": [
+        "assessment",
+        "executed_test"
+      ],
+      "allow_not_applicable": false,
+      "maps_to": [
+        "TH-1",
+        "TH-2",
+        "TH-3",
+        "TH-4",
+        "TH-5",
+        "TH-6",
+        "TH-7",
+        "TH-8",
+        "TH-9",
+        "TH-10",
+        "TH-11"
+      ]
+    },
+    {
+      "id": "EVIDENCE",
+      "title": "Evidence set and honest claims",
+      "question": "Index the full evidence set, C5 extracts, governed-system logs, C4 logs, incident records and residual risks. Demonstrate independently reproducible findings; state self-assessment where appropriate. Distinguish admission from effect, record upstream conflicts, and do not infer a level from these questions.",
+      "source_path": "spec/parts/part-6-conformance-and-maturity.md",
+      "section": "28.5; 28.6; 29.2; 29.4; 29.5",
+      "required_kinds": [
+        "assessment",
+        "c5_log",
+        "system_log"
+      ],
+      "allow_not_applicable": false,
+      "maps_to": [
+        "I3",
+        "I6",
+        "I7",
+        "P-E"
+      ]
+    },
+    {
+      "id": "NT-001",
+      "title": "Non-ECC operation blocked",
+      "question": "Present an operation without a valid ECC at the governed boundary; observe structural blocking and matching C5/system evidence. Include a valid authorized positive control.",
+      "source_path": "spec/appendices/appendix-q-evidence-pack-and-reference-negative-tests.md",
+      "section": "NT-001",
+      "required_kinds": [
+        "executed_test",
+        "c5_log"
+      ],
+      "allow_not_applicable": false,
+      "maps_to": [
+        "C6",
+        "P4"
+      ]
+    },
+    {
+      "id": "NT-002",
+      "title": "Expired ECC blocked",
+      "question": "Present an otherwise valid expired ECC and show C6 blocking without execution; include correlated evidence and an unexpired positive control.",
+      "source_path": "spec/appendices/appendix-q-evidence-pack-and-reference-negative-tests.md",
+      "section": "NT-002",
+      "required_kinds": [
+        "executed_test",
+        "c5_log"
+      ],
+      "allow_not_applicable": false,
+      "maps_to": [
+        "C6"
+      ]
+    },
+    {
+      "id": "NT-003",
+      "title": "ECC replay blocked",
+      "question": "Redeem an ECC once and present it again while otherwise valid; prove a single admission and replay blocking with correlated evidence. Separate this from same-key concurrent redemption.",
+      "source_path": "spec/appendices/appendix-q-evidence-pack-and-reference-negative-tests.md",
+      "section": "NT-003",
+      "required_kinds": [
+        "executed_test",
+        "c5_log"
+      ],
+      "allow_not_applicable": false,
+      "maps_to": [
+        "C6",
+        "P-D"
+      ]
+    },
+    {
+      "id": "NT-004",
+      "title": "Unregistered context blocked",
+      "question": "Request an unregistered target and show context failure before C2/C7 can authorize execution. Include a registered context control.",
+      "source_path": "spec/appendices/appendix-q-evidence-pack-and-reference-negative-tests.md",
+      "section": "NT-004",
+      "required_kinds": [
+        "executed_test",
+        "c5_log"
+      ],
+      "allow_not_applicable": false,
+      "maps_to": [
+        "C3"
+      ]
+    },
+    {
+      "id": "NT-005",
+      "title": "Ambiguous E3 verdict denied",
+      "question": "Where E3 invariants exist, force an ambiguous analyzer verdict and show fail-deny with analyzer version and no ECC/execution. If none exist, substantiate that boundary limitation rather than pretending the test ran.",
+      "source_path": "spec/appendices/appendix-q-evidence-pack-and-reference-negative-tests.md",
+      "section": "NT-005",
+      "required_kinds": [
+        "executed_test",
+        "c5_log"
+      ],
+      "allow_not_applicable": true,
+      "maps_to": [
+        "C2",
+        "I5"
+      ]
+    },
+    {
+      "id": "NT-006",
+      "title": "Cumulative trajectory blocked",
+      "question": "Where trajectory invariants apply, show the linked alert and denial before the hard limit, including relevant low-and-slow/cross-session profiles. Record per-key concurrency separately under Part VI 29.3.",
+      "source_path": "spec/appendices/appendix-q-evidence-pack-and-reference-negative-tests.md",
+      "section": "NT-006",
+      "required_kinds": [
+        "executed_test",
+        "c5_log"
+      ],
+      "allow_not_applicable": true,
+      "maps_to": [
+        "C4",
+        "P-C"
+      ]
+    },
+    {
+      "id": "NT-007",
+      "title": "Governed exception replay and widening blocked",
+      "question": "Where governed exceptions exist, test valid use, replay, scope widening and simultaneous redemption across enforcement instances. A sequential replay test alone does not cover the whole case.",
+      "source_path": "spec/appendices/appendix-q-evidence-pack-and-reference-negative-tests.md",
+      "section": "NT-007; Part VI 29.3",
+      "required_kinds": [
+        "executed_test",
+        "c5_log"
+      ],
+      "allow_not_applicable": true,
+      "maps_to": [
+        "C1",
+        "C6",
+        "C7",
+        "P-D"
+      ]
+    },
+    {
+      "id": "NT-008",
+      "title": "Authority non-expansion",
+      "question": "Test allowed delegation as a positive control where implemented, attenuation across scope dimensions, and composition/authority laundering. Non-delegation systems may exclude the delegation-only steps, not the submitting-subject composition requirement.",
+      "source_path": "spec/appendices/appendix-q-evidence-pack-and-reference-negative-tests.md",
+      "section": "NT-008; Part II 5.9",
+      "required_kinds": [
+        "executed_test",
+        "c5_log"
+      ],
+      "allow_not_applicable": false,
+      "maps_to": [
+        "I8",
+        "P-B"
+      ]
+    }
+  ]
+}

@@ -1,4 +1,35 @@
-# Credits
+# Credits and adaptation notice
+
+## The CROA Project
+
+**CROA — Constrained Reachability Orchestration Architecture** is authored by **The CROA Project**.
+The v1.0.1 citation names **Yasmine Durand, Darrin Smith and Sylvain Durand**. Thank you for
+publishing an architecture, explicit limitations, errata and reference tests that can be examined.
+
+- Website: https://www.croaframework.org/
+- Repository: https://github.com/CROA-Project/CROA
+- Requested release: https://github.com/CROA-Project/CROA/tree/v1.0.1
+- Pinned source: https://github.com/CROA-Project/CROA/tree/4d59192da9a0d00412c9d2ccb9e5ab68176803ff
+- v1.0.1 DOI: https://doi.org/10.5281/zenodo.22310276
+- Original citation: https://github.com/CROA-Project/CROA/blob/4d59192da9a0d00412c9d2ccb9e5ab68176803ff/CITATION.cff
+- Reference demonstrator: https://github.com/CROA-Project/croa-reference-harness
+
+CROA specification/documentation: **CC BY 4.0**. Upstream code and machine-readable artifacts:
+**Apache-2.0**. These are different licenses; this kit does not relicense upstream work.
+
+**Æion changes:** grouped assessment prompts, version/provenance records, reading notes, an
+agent skill, a local packet format, and original Python validation/reporting tools. Questions
+and prose are adaptations of the specification, not official CROA normative requirements.
+No CROA harness code, official schemas or complete specification are bundled. Upstream authors
+have not reviewed or endorsed these adaptations; interpretation mistakes are ours.
+
+## Æion Factory
+
+The scaffold comes from https://github.com/OualidGuennif/aeion-factory at
+`00fdbd0757b8ed3e08e71fa335de851234423c74`, MIT, copyright 2026 Oualid Guennif.
+Its engineering workflow is retained. Existing Factory credits follow without removing attribution.
+
+# Factory credits
 
 Æion Factory is an orchestration layer over other people's ideas and tools. Thank you.
 
