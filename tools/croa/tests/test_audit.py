@@ -181,6 +181,14 @@ class AuditTests(unittest.TestCase):
             with self.subTest(target=target), self.assertRaises(audit.AuditError):
                 self.load(packet)
 
+    def test_integer_conversion_errors(self):
+        self.path.write_text('{"value":' + ("9" * 5000) + '}')
+        for command in ("validate", "report"):
+            result = subprocess.run([sys.executable, str(CLI), command, str(self.path)],
+                                    capture_output=True, text=True, timeout=10)
+            self.assertEqual(result.returncode, 3)
+            self.assertNotIn("Traceback", result.stderr)
+
     def test_status_types_and_control_characters(self):
         for status in (True, [], "passed", None):
             packet = copy.deepcopy(self.packet)

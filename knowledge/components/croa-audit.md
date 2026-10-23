@@ -94,7 +94,8 @@ every CROA normative requirement.
    `test_evidence_limits`, `test_pass_requires_evidence_kinds`.
 6. Evidence cannot escape via traversal, symlinks, hard links or special files:
    `test_forbidden_paths`, `test_symlinks_and_special_files`.
-7. Ambiguous JSON and unknown fields refuse: `test_invalid_json`, `test_unexpected_fields`.
+7. Ambiguous JSON, integer-conversion failures and unknown fields refuse without tracebacks:
+   `test_invalid_json`, `test_integer_conversion_errors`, `test_unexpected_fields`.
 8. Data cannot inject report markup: `test_markdown_escapes_data`.
 9. Inputs are not modified: `test_cli_round_trip_is_read_only`.
 10. Questions link to a pinned attributed source: `test_catalog_source_links`.

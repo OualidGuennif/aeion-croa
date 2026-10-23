@@ -105,7 +105,9 @@ def load_packet(path):
                             parse_constant=invalid_constant)
         validate(packet, root)
         return packet
-    except (OSError, UnicodeError, json.JSONDecodeError, RecursionError) as error:
+    except AuditError:
+        raise
+    except (OSError, ValueError, RecursionError) as error:
         raise AuditError("Cannot read a valid bounded packet or staged evidence") from error
 
 
