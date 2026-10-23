@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "For the underlying architecture, cite CROA using the reference below. Æion CROA is an independent audit adaptation."
+title: "Æion CROA: an independent evidence-led audit kit"
+type: software
+authors:
+  - name: "Æion contributors"
+repository-code: "https://github.com/OualidGuennif/aeion-croa"
+license:
+  - MIT
+  - CC-BY-4.0
+references:
+  - type: report
+    title: "CROA — Constrained Reachability Orchestration Architecture: A Framework for Deterministic Governance of Agentic AI Execution"
+    authors:
+      - family-names: Durand
+        given-names: Yasmine
+      - family-names: Smith
+        given-names: Darrin
+      - family-names: Durand
+        given-names: Sylvain
+    version: "1.0.1"
+    doi: "10.5281/zenodo.22310276"
+    url: "https://github.com/CROA-Project/CROA/tree/v1.0.1"

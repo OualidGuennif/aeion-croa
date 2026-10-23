@@ -19,7 +19,8 @@ under its heading: `- <preference> (<source>, YYYY-MM-DD)`.
 
 ## Workflow
 
-- (none yet)
+- On 2026-10-23 the owner authorized creating this separate CROA audit kit with optional Factory invocation and full upstream attribution; this is the initial implementation go (chat, 2026-10-23).
+- Publish this repository publicly as open source (chat, 2026-10-23).
 
 ## Engineering
 

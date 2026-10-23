@@ -12,4 +12,5 @@ generated:
 
 | Concept | Status | Notes |
 | --- | --- | --- |
+| [CROA v1.0.1](croa-v1.0.1.md) | stable | upstream authorship, sources and caveats |
 | [Sources behind the Factory](sources.md) | stable | the research and tools the guide rests on |

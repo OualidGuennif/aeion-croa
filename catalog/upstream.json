@@ -1,0 +1,101 @@
+{
+  "project": "CROA-Project/CROA",
+  "version": "v1.0.1",
+  "commit": "4d59192da9a0d00412c9d2ccb9e5ab68176803ff",
+  "retrieved_on": "2026-10-23",
+  "website": "https://www.croaframework.org/",
+  "doi": "10.5281/zenodo.22310276",
+  "authors": [
+    "Yasmine Durand",
+    "Darrin Smith",
+    "Sylvain Durand"
+  ],
+  "upstream_licenses": {
+    "prose": "CC-BY-4.0",
+    "code_and_official_schemas": "Apache-2.0"
+  },
+  "adaptation_license": "CC-BY-4.0",
+  "notes": "Files consulted in full or in audit-relevant sections. Repository tag includes post-deposit repairs; see reading notes. Hashes identify source bytes, not a trust attestation.",
+  "sources": [
+    {
+      "path": "LICENSE",
+      "sha256": "e1b45af776adacb0b6acd8b842dfc3513343d04478498361847f841896c66b2e"
+    },
+    {
+      "path": "LICENSE-DOCS",
+      "sha256": "bbbb08e5795a749ff09a207f8a0446fbaeb5a7fd8571ed70e727059bd93bebbb"
+    },
+    {
+      "path": "LICENSE-CODE",
+      "sha256": "8c430efc8db91bd777e07c103eebaeed4d6af5c0a56efe4218bfb16d991b6e7b"
+    },
+    {
+      "path": "CITATION.cff",
+      "sha256": "cc463120a9af16c02af96e3c35537f1df70bdfeba4e750cb43420e11df17233e"
+    },
+    {
+      "path": "README.md",
+      "sha256": "8c6ab289d604186eded9889f917075003833770c5adedb4cef7bfe78c223d84e"
+    },
+    {
+      "path": "spec/README.md",
+      "sha256": "24d1d80ce8936a94d49ee2d1bbfb8ec8ee14dde1101c1cf728fc0d7372a7a331"
+    },
+    {
+      "path": "spec/parts/00-front-matter.md",
+      "sha256": "198660e99938ce41a53c74eb357885edda2964c2138e2066a6ae51c4d5c0a021"
+    },
+    {
+      "path": "spec/parts/part-2-reference-architecture.md",
+      "sha256": "84f2634e341bbd23990039f42327db53c305a9a9b49bfcf0b660de82d422f059"
+    },
+    {
+      "path": "spec/parts/part-4-deployment-models.md",
+      "sha256": "f76444a6b109b5c51cb12e1a97fe2a7990b4756e70d3b77901c532389df976c8"
+    },
+    {
+      "path": "spec/parts/part-5-threat-model.md",
+      "sha256": "259b723d2349173d234a76d47455ff70438e2e14aa4f24c4dcc00ebcea5160c2"
+    },
+    {
+      "path": "spec/parts/part-6-conformance-and-maturity.md",
+      "sha256": "c43dfb54d6c86d18dc40083a83c634cc54f302acf40567d662f16eb72f646b4f"
+    },
+    {
+      "path": "spec/appendices/appendix-k-croa-core-profile.md",
+      "sha256": "2bc9909c259534e7d60a65112d1ca57072f5afaf678eab249c843d3ac668a788"
+    },
+    {
+      "path": "spec/appendices/appendix-q-evidence-pack-and-reference-negative-tests.md",
+      "sha256": "2a8c21e9bbabdb9727e4a4ca9617ff1e7fca52082767d02320655332104b2aa3"
+    },
+    {
+      "path": "spec/identifiers.md",
+      "sha256": "a1b00fefb78f18eff9f094cb4741ce513197cf2126125735ad320335a4214e49"
+    },
+    {
+      "path": "spec/properties.md",
+      "sha256": "cf1e7777d9b53e4475bc3fbb2f3cee6cc19a212d2ca6f3dc12d1c623dc01894d"
+    },
+    {
+      "path": "spec/errata-v1.0.md",
+      "sha256": "95d317412d1dc9169f2ee2559953e092e9c928912f8cc9c056732203eb0f165c"
+    },
+    {
+      "path": "spec/known-defects-harness.md",
+      "sha256": "0ba21794a984b92a29a56a096170b6bfa0a96590d089168130f55a7b9420feb2"
+    },
+    {
+      "path": "docs/architecture-overview.md",
+      "sha256": "e4f79d05b9b57494da249f9a6db6cf4a1af40e2584a01cbb63d0bf77da0569c2"
+    },
+    {
+      "path": "docs/limitations.md",
+      "sha256": "861dc9dbd745f57e9bdf06dfd7c0284a16ec37c3522b62228c91a08e930f890d"
+    },
+    {
+      "path": "rfcs/text/0003-v1.0.1-normative-surface.md",
+      "sha256": "94efaa5f38bdd43d59b40dbea6980a51012f40ba43631dab3b68c8d793b7e3d7"
+    }
+  ]
+}

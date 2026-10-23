@@ -11,3 +11,7 @@ __pycache__/
 .DS_Store
 node_modules/
 .venv/
+
+# Local audit packets may contain operational evidence.
+/audits/
+/reports/

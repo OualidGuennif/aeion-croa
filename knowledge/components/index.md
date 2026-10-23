@@ -15,3 +15,4 @@ Start from [the template](_template.md).
 
 | Component | Status | Notes |
 | --- | --- | --- |
+| [CROA audit kit](croa-audit.md) | stable | evidence contract and CLI |

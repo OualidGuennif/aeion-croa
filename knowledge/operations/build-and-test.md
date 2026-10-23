@@ -28,7 +28,7 @@ Rebuild it with `tools/efficiency/bundle` after editing those sources.
 | Docs and code links | `tools/knowledge/doc-links` (`--diff origin/main` on a branch) | the root |
 | Comments, file size, caps | `tools/repo-health/repo-health` | the root |
 | Hooks and tools | `python3 .claude/hooks/test_hooks.py`, `python3 tools/knowledge/tests/test_doc_links.py` | the root |
-| Your code | add your build, lint and test commands here, copied from CI | |
+| CROA audit kit | `python3 -m unittest discover -s tools/croa/tests -v` | the root |
 
 The pre-commit (`git config core.hooksPath tools/git-hooks`) runs the first three; CI runs all of
 them and the security scans.

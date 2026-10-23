@@ -22,6 +22,12 @@ Everything you can run here, grouped by loop. Skills are invoked by name in a Cl
 | `loop-triage` | an outer-loop finding: turn it into an issue an inner loop can fix |
 | `adopt` | apply the Factory to an existing repository, one phase at a time |
 
+## CROA audit
+
+Read [the runbook](knowledge/operations/croa-audit.md). The optional
+[croa-audit skill](integrations/croa-audit/SKILL.md) can be called from another Factory workspace.
+Run `python3 -m unittest discover -s tools/croa/tests -v` to verify the kit.
+
 ## Tools
 
 ```bash
