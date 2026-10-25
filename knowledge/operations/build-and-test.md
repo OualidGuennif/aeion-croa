@@ -33,6 +33,22 @@ Rebuild it with `tools/efficiency/bundle` after editing those sources.
 The pre-commit (`git config core.hooksPath tools/git-hooks`) runs the first three; CI runs all of
 them and the security scans.
 
+## Python compatibility
+
+The audit kit supports Python 3.11+ with the standard library on Linux and macOS. CI selects
+Python explicitly with the SHA-pinned `actions/setup-python` action. The audit suite runs on:
+
+| Runner | Python |
+| --- | --- |
+| `ubuntu-latest` | 3.11 |
+| `ubuntu-latest` | 3.15 |
+| `macos-latest` | 3.15 |
+
+The knowledge, links, repository-health and hooks job uses Python 3.15 on `ubuntu-latest`.
+Intermediate Python releases are supported but not individually included in this matrix.
+WSL is expected to work with the same POSIX filesystem APIs, but has no dedicated CI job;
+validate it in the intended distribution before relying on it. Native Windows is unsupported.
+
 ## Language servers
 
 `tools/claude-plugins/` is a local marketplace with `native-lsp`: TypeScript 7 (`tsc --lsp

@@ -17,6 +17,9 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           fetch-depth: 0
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.15'
       - run: ./tools/knowledge/knowledge-check
       - name: doc-links (with --diff on pull requests)
         env:
@@ -27,10 +30,23 @@ jobs:
       - run: python3 tools/knowledge/tests/test_doc_links.py && python3 .claude/hooks/test_hooks.py
 
   audit-tests:
-    name: CROA audit packet and evidence tests
-    runs-on: ubuntu-latest
+    name: CROA audit tests (${{ matrix.os }}, Python ${{ matrix.python }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python: '3.11'
+          - os: ubuntu-latest
+            python: '3.15'
+          - os: macos-latest
+            python: '3.15'
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: ${{ matrix.python }}
       - run: python3 -m unittest discover -s tools/croa/tests -v
 
   secret-scan:
