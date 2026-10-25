@@ -23,8 +23,11 @@ optional agent skill. It is not an official CROA product or certification.
 
 ## Start an audit
 
-Python 3.9+ on Linux, macOS or WSL and the standard library are sufficient. The CLI reads a packet and staged
-evidence; it never runs the audited repository or contacts a model/provider.
+Use Python 3.11+ on Linux or macOS; the standard library is sufficient. The
+[CI compatibility matrix](knowledge/operations/build-and-test.md#python-compatibility) covers
+Ubuntu with Python 3.11/3.15 and macOS with Python 3.15. WSL is expected to work but is not
+independently tested in CI. The CLI reads a packet and staged evidence; it never runs the
+audited repository or contacts a model/provider.
 
 ```bash
 git clone https://github.com/OualidGuennif/aeion-croa.git
