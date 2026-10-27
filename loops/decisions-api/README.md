@@ -16,7 +16,8 @@ Every call carries `Authorization: Bearer $DECISION_API_SECRET`.
 
 - **Off until turned on:** `DECISION_API_ENABLED=false` in `env.local`; `client.sh` refuses to run.
 - **The secret stays in `env.local`:** the client reads it itself; it never enters a prompt, a log,
-  an issue or the agent's environment.
+  an issue, the agent's environment or a command line (the header reaches `curl` on stdin).
+- **HTTPS only:** `curl --proto =https` refuses any other URL, so the token never travels in clear.
 - **Agents read and propose; humans approve.** A missing, unreachable or `proposed` decision means
   *no*: the loop fails closed and opens a `needs-owner` issue.
 
