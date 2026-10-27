@@ -30,6 +30,7 @@ it and fails when the committed bundle differs.
 | Comments, file size, caps | `tools/repo-health/repo-health` | the root |
 | Hooks and tools | `python3 .claude/hooks/test_hooks.py`, `python3 tools/knowledge/tests/test_doc_links.py` | the root |
 | CROA audit kit | `python3 -m unittest discover -s tools/croa/tests -v` | the root |
+| Efficiency bundle | `tools/efficiency/bundle`, then `git diff --exit-code efficiency/efficiency-bundle.md` | the root |
 
 The pre-commit (`git config core.hooksPath tools/git-hooks`) runs the first three; CI runs all of
 them and the security scans.
