@@ -62,7 +62,7 @@ python3 tools/croa/audit.py report audits/example/audit.json --format json
 | report | 0 | Findings recorded for review; no conformance conclusion |
 | report | 1 | At least one recorded failure |
 | report | 2 | Unknown finding or missing scope/assessor metadata |
-| validate / report | 3 | Invalid input, unsafe path, absent/changed evidence or resource limit |
+| init / validate / report | 3 | Invalid input, unsafe path, absent/changed evidence or resource limit |
 | any | 2 | Argument usage error, distinguishable by usage text on stderr |
 
 Audit packets and reports are git-ignored. The CLI writes stdout/stderr only. Review reports
