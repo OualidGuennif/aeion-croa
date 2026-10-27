@@ -94,8 +94,14 @@ is [Part II](https://github.com/CROA-Project/CROA/blob/4d59192da9a0d00412c9d2ccb
   authorization freshness remains a separate issue.
 - **Harness limitations.** The reference harness is a demonstrator. Mock tests and its known
   defect record do not transfer enforcement guarantees to a real deployment.
+- **Part III artifact identifiers.** The tagged Part III is the post-deposit Policy-as-Code rewrite
+  (Chapters 7–11). §10.1–§10.4 require the threat assessment, a structural rationale for a class
+  judged not relevant, the negative tests in CI, a mitigation map and an accepted-residuals record,
+  but name no RTM or C-22…C-32. Part VI §29.2 still cites "RTM (Part III)" and "C-22 (Part III
+  §10.1; Part V)"; the identifiers survive in Part V's conformance requirements and Part VI's informative
+  Appendix VI-A. The catalog uses them as those Parts name them.
 
-Sources: pinned Parts II, IV, V and VI, Appendix Q,
+Sources: pinned Parts II, III, IV, V and VI, Appendix Q,
 [errata](https://github.com/CROA-Project/CROA/blob/4d59192da9a0d00412c9d2ccb9e5ab68176803ff/spec/errata-v1.0.md),
 [limitations](https://github.com/CROA-Project/CROA/blob/4d59192da9a0d00412c9d2ccb9e5ab68176803ff/docs/limitations.md)
 and [harness defects](https://github.com/CROA-Project/CROA/blob/4d59192da9a0d00412c9d2ccb9e5ab68176803ff/spec/known-defects-harness.md).

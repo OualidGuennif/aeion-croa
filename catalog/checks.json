@@ -172,9 +172,9 @@
     {
       "id": "THREATS",
       "title": "Threat coverage and additional negative tests",
-      "question": "Assess all TH-1 through TH-11, RTM and C-22 through C-25, the Part V 27.3 minimum negative test for each relevant threat, positive controls, ECC-integrity and repeated concurrency tests. Include unconditional TH-1 and applicable AQL/delegation batteries. NT-001 through NT-008 alone are not exhaustive.",
+      "question": "Assess all TH-1 through TH-11 (a class assessed not relevant needs a structural rationale), RTM and C-22 through C-25, the Part V 27.3 minimum negative test for each relevant threat, positive controls, ECC-integrity and repeated concurrency tests. Include unconditional TH-1 and applicable AQL/delegation batteries. NT-001 through NT-008 alone are not exhaustive.",
       "source_path": "spec/parts/part-5-threat-model.md",
-      "section": "26; 27.1; 27.3; Part VI 29.2; Part VI 29.3",
+      "section": "26; 27.1; 27.3; Part III 10.1; Part III 10.2; Part VI 29.2; Part VI 29.3",
       "required_kinds": [
         "assessment",
         "executed_test"
