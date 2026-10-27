@@ -18,12 +18,7 @@
         "assessment"
       ],
       "allow_not_applicable": false,
-      "maps_to": [
-        "TB-1",
-        "TB-2",
-        "TB-3",
-        "TB-4"
-      ]
+      "maps_to": []
     },
     {
       "id": "C1",
@@ -117,9 +112,9 @@
     {
       "id": "C6",
       "title": "Execution firewall and atomic redemption",
-      "question": "Trace ECC verification, subject/scope/expiry/invariant-version checks and shared linearizable single-use redemption across all enforcement instances. Corroborate C6 admission with governed-system logs; a permit or compiled ECC is not a completed effect.",
+      "question": "Trace ECC verification, subject/scope/expiry/invariant-version checks and shared linearizable single-use redemption across all enforcement instances. Present one ecc.id simultaneously to two C6 instances, repeatedly under contention, and record the trial count; at most one may be admitted. Corroborate C6 admission with governed-system logs; a permit or compiled ECC is not a completed effect.",
       "source_path": "spec/parts/part-2-reference-architecture.md",
-      "section": "4.8; 6.2",
+      "section": "4.8; 6.2; Part VI 29.3",
       "required_kinds": [
         "executed_test",
         "c5_log",
@@ -177,9 +172,9 @@
     {
       "id": "THREATS",
       "title": "Threat coverage and additional negative tests",
-      "question": "Assess all TH-1 through TH-11, RTM and C-22 through C-25, relevant threat-specific tests, positive controls, ECC-integrity and repeated concurrency tests. Include unconditional TH-1 and applicable AQL/delegation batteries. NT-001 through NT-008 alone are not exhaustive.",
-      "source_path": "spec/parts/part-6-conformance-and-maturity.md",
-      "section": "29.2; 29.3",
+      "question": "Assess all TH-1 through TH-11, RTM and C-22 through C-25, the Part V 27.3 minimum negative test for each relevant threat, positive controls, ECC-integrity and repeated concurrency tests. Include unconditional TH-1 and applicable AQL/delegation batteries. NT-001 through NT-008 alone are not exhaustive.",
+      "source_path": "spec/parts/part-5-threat-model.md",
+      "section": "26; 27.1; 27.3; Part VI 29.2; Part VI 29.3",
       "required_kinds": [
         "assessment",
         "executed_test"
@@ -315,7 +310,7 @@
     {
       "id": "NT-007",
       "title": "Governed exception replay and widening blocked",
-      "question": "Where governed exceptions exist, test valid use, replay, scope widening and simultaneous redemption across enforcement instances. A sequential replay test alone does not cover the whole case.",
+      "question": "Where governed exceptions exist, test valid use, replay, scope widening and simultaneous redemption across enforcement instances. A sequential replay test alone does not cover the whole case. Excluding NT-007 does not waive the same-ecc.id concurrent redemption test recorded under C6.",
       "source_path": "spec/appendices/appendix-q-evidence-pack-and-reference-negative-tests.md",
       "section": "NT-007; Part VI 29.3",
       "required_kinds": [

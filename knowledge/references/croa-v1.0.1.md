@@ -74,7 +74,15 @@ is [Part II](https://github.com/CROA-Project/CROA/blob/4d59192da9a0d00412c9d2ccb
 - **Durability before transition.** I6.1 permits deferred central replication under a bounded
   RTO after local durable commitment. It does not permit unrecorded execution.
 - **Eight reference tests.** NT-001–NT-008 are reference cases. Part VI §29.3 adds threat-specific,
-  ECC-integrity, concurrency and conditional AQL/delegation tests. Eight passes are not exhaustive.
+  ECC-integrity, concurrency and conditional AQL/delegation tests; Part V §27.3 sets the minimum
+  negative test per threat class. Eight passes are not exhaustive.
+- **Conditional reference tests.** Appendix Q states applicability only for NT-008 Part A
+  (delegation), and its closing note lists the NT-005 and NT-006 properties as minimum evidence.
+  This kit lets NT-005 be excluded when no invariant is evaluated by an E3 method (Part II §5.2),
+  NT-006 when no invariant uses TP-W, TP-C or TP-X (Part VI §28.5.1), and NT-007 when no governed
+  exception exists: an Æion interpretation. Part VI §28.3 still requires active trajectory analysis
+  at L4, which conflicts with a conditional NT-006; retain both readings. TH-1 trajectory tests and
+  same-`ecc.id` concurrent redemption (§29.3) stay unconditional.
 - **I8 interpretation.** Authority attenuates along delegation; composition cannot launder
   authority. The union of authorized actions may still be jointly unsafe. Appendix Q's closing
   least-authorized-participant wording conflicts with the corrected I8 text; retain the caveat.
@@ -86,7 +94,7 @@ is [Part II](https://github.com/CROA-Project/CROA/blob/4d59192da9a0d00412c9d2ccb
 - **Harness limitations.** The reference harness is a demonstrator. Mock tests and its known
   defect record do not transfer enforcement guarantees to a real deployment.
 
-Sources: pinned Parts II, IV and VI, Appendix Q,
+Sources: pinned Parts II, IV, V and VI, Appendix Q,
 [errata](https://github.com/CROA-Project/CROA/blob/4d59192da9a0d00412c9d2ccb9e5ab68176803ff/spec/errata-v1.0.md),
 [limitations](https://github.com/CROA-Project/CROA/blob/4d59192da9a0d00412c9d2ccb9e5ab68176803ff/docs/limitations.md)
 and [harness defects](https://github.com/CROA-Project/CROA/blob/4d59192da9a0d00412c9d2ccb9e5ab68176803ff/spec/known-defects-harness.md).
