@@ -9,6 +9,7 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import re
 import subprocess
 import sys
 import tempfile
@@ -213,9 +214,15 @@ class AuditTests(unittest.TestCase):
         self.assertEqual(len(catalog["checks"]), 19)
         self.assertEqual(catalog["upstream"]["commit"], provenance["commit"])
         self.assertEqual(catalog["license"], "CC-BY-4.0")
+        numerals = ("I", "II", "III", "IV", "V", "VI", "VII")
         for check in catalog["checks"]:
             self.assertIn(check["source_path"], paths)
             self.assertTrue(check["section"])
+            # A section citing another Part ("Part III 10.1") needs that Part pinned too.
+            for part in re.findall(r"\bPart (VII|VI|IV|V|I{1,3})\b", check["section"]):
+                prefix = f"spec/parts/part-{numerals.index(part) + 1}-"
+                with self.subTest(check=check["id"], part=part):
+                    self.assertTrue(any(p.startswith(prefix) for p in paths))
 
     def test_cli_round_trip_is_read_only(self):
         result = subprocess.run([sys.executable, str(CLI), "init", "--system", "fixture"],

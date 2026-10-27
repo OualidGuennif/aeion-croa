@@ -35,7 +35,7 @@ evidence; it does not scan or execute the target, enforce CROA, or certify a dep
 
 | Source | What is read | Owner | Freshness |
 | --- | --- | --- | --- |
-| CROA source | Parts II, IV, V, VI; Appendix Q; errata and limitations | The CROA Project | Pinned v1.0.1 commit in catalog |
+| CROA source | Parts II, III, IV, V, VI; Appendix Q; errata and limitations | The CROA Project | Pinned v1.0.1 commit in catalog |
 | Catalog | Nineteen grouped assessment questions with source sections | Æion, adapted with attribution | Current checkout |
 | Audit packet | Scope, assessor, findings and evidence references | Assessor | Explicit audit period and target revision |
 | Staged evidence | Bounded regular files under the packet's evidence/ directory | Evidence custodian | SHA-256 bound to each reference |
@@ -101,7 +101,8 @@ every CROA normative requirement.
    `test_invalid_json`, `test_integer_conversion_errors`, `test_unexpected_fields`.
 8. Data cannot inject report markup: `test_markdown_escapes_data`.
 9. Inputs are not modified: `test_cli_round_trip_is_read_only`.
-10. Questions link to a pinned attributed source: `test_catalog_source_links`.
+10. Questions, and every Part their sections cite, link to a pinned attributed source:
+    `test_catalog_source_links`.
 
 ## Determinism
 
