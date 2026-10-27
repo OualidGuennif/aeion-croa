@@ -66,7 +66,9 @@ Unknown findings may have no evidence. Other statuses need notes and matching st
 Passing reference tests require executed-test artifacts and corroborating C5 extracts; passing
 deployment assessment also needs configuration, network-test artifacts and governed-system logs.
 Non-applicability requires a rationale and an assessment artifact and is allowed only for the
-catalog's conditional tests. NT-008's composition cases cannot be skipped wholesale.
+catalog's conditional tests. NT-008's composition cases cannot be skipped wholesale, and excluding
+NT-007 leaves same-ECC concurrent redemption to C6. The conditions are an Æion interpretation,
+recorded in the [reading notes](../references/croa-v1.0.1.md).
 
 This is an Æion evidence index, not an official C-32, ECC or event schema. Applicability and
 truth of evidence remain assessor judgments. Nineteen questions are not an exhaustive list of
