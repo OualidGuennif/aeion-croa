@@ -20,7 +20,8 @@ sources:
 CI action revisions are pinned to upstream commit SHAs; review upstream changes before updating them.
 
 The standalone efficiency bundle includes the CRAFTED principles as well as the seven chapters.
-Rebuild it with `tools/efficiency/bundle` after editing those sources.
+Rebuild it with `tools/efficiency/bundle` after editing those sources or `CREDITS.md`; CI rebuilds
+it and fails when the committed bundle differs.
 
 | Layer | Gate | From |
 | --- | --- | --- |
