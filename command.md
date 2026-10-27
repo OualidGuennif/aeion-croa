@@ -38,6 +38,7 @@ tools/knowledge/doc-links --for path/to/file          # the docs covering a file
 tools/repo-health/repo-health [--json]                # comment blocks, file sizes, AGENTS.md and work caps
 python3 tools/knowledge/tests/test_doc_links.py       # tool tests
 python3 .claude/hooks/test_hooks.py                   # hook tests
+python3 loops/decisions-api/test_client.py            # Decisions API client: secret off argv, HTTPS only
 ```
 
 ## Loops (`loops/orchestrator.sh`)
