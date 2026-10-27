@@ -80,8 +80,9 @@ is [Part II](https://github.com/CROA-Project/CROA/blob/4d59192da9a0d00412c9d2ccb
   (delegation), and its closing note lists the NT-005 and NT-006 properties as minimum evidence.
   This kit lets NT-005 be excluded when no invariant is evaluated by an E3 method (Part II §5.2),
   NT-006 when no invariant uses TP-W, TP-C or TP-X (Part VI §28.5.1), and NT-007 when no governed
-  exception exists: an Æion interpretation. Part VI §28.3 still requires active trajectory analysis
-  at L4, which conflicts with a conditional NT-006; retain both readings. TH-1 trajectory tests and
+  exception exists: an Æion interpretation. §28.5.1 is non-normative; normative §28.3 and the
+  Part II trajectory-presence criterion require active trajectory analysis at L4, so a missing
+  trajectory capability is a C4 finding even when NT-006 is excluded. TH-1 trajectory tests and
   same-`ecc.id` concurrent redemption (§29.3) stay unconditional.
 - **I8 interpretation.** Authority attenuates along delegation; composition cannot launder
   authority. The union of authorized actions may still be jointly unsafe. Appendix Q's closing

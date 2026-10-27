@@ -112,7 +112,7 @@
     {
       "id": "C6",
       "title": "Execution firewall and atomic redemption",
-      "question": "Trace ECC verification, subject/scope/expiry/invariant-version checks and shared linearizable single-use redemption across all enforcement instances. Present one ecc.id simultaneously to two C6 instances, repeatedly under contention, and record the trial count; at most one may be admitted. Corroborate C6 admission with governed-system logs; a permit or compiled ECC is not a completed effect.",
+      "question": "Trace ECC verification, subject/scope/expiry/invariant-version checks and shared linearizable single-use redemption across all enforcement instances. Present one ecc.id simultaneously to two C6 instances, repeatedly under contention, and record the trial count; at most one may be admitted, and C5 must record each loser as EXECUTION_BLOCKED with ECC_ALREADY_REDEEMED. Corroborate C6 admission with governed-system logs; a permit or compiled ECC is not a completed effect.",
       "source_path": "spec/parts/part-2-reference-architecture.md",
       "section": "4.8; 6.2; Part VI 29.3",
       "required_kinds": [
