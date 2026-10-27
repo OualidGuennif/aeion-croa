@@ -31,6 +31,7 @@ docs/         slides/workflow-human.html, the Factory workflow for humans
 ```bash
 tools/knowledge/knowledge-check && tools/knowledge/doc-links && tools/repo-health/repo-health
 python3 tools/knowledge/tests/test_doc_links.py && python3 .claude/hooks/test_hooks.py
+python3 loops/decisions-api/test_client.py   # the Decisions API client keeps its secret off argv
 loops/orchestrator.sh outer --dry-run        # shows the command a loop would run, runs nothing
 ```
 

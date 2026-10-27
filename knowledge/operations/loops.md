@@ -38,4 +38,6 @@ and runs nothing while `LOOPS_ENABLED` is not `true`; `--dry-run` prints the set
 Schedulers: `loops/schedules/crontab.example`, the launchd plist, or
 `.github/workflows/outer-loop.yml` (off until the repository variable `OUTER_LOOP_ENABLED` is
 `true`). Issues follow `loops/issue-protocol.md`. The Decisions API client
-(`loops/decisions-api/client.sh`) refuses to run until `DECISION_API_ENABLED=true`.
+(`loops/decisions-api/client.sh`) refuses to run until `DECISION_API_ENABLED=true`, calls HTTPS URLs
+only, and hands its bearer header to `curl` on stdin, never as a command-line argument;
+`loops/decisions-api/test_client.py` holds those guarantees and the refusals without credentials.

@@ -8,12 +8,15 @@ setting() { grep -E "^$1=" "$ROOT/env.local" 2>/dev/null | tail -1 | cut -d= -f2
 [[ "$(setting DECISION_API_ENABLED)" == true ]] || { echo "Decisions API disabled (DECISION_API_ENABLED)" >&2; exit 3; }
 URL="$(setting DECISION_API_URL)"; SECRET="$(setting DECISION_API_SECRET)"
 [[ -n "$URL" && -n "$SECRET" && "$SECRET" != "???" ]] || { echo "Decisions API not configured in env.local" >&2; exit 3; }
+# The bearer header reaches curl on stdin, since any local user can read a command's arguments;
+# HTTPS only, so the secret never crosses the network in clear.
+api() { printf 'Authorization: Bearer %s\n' "$SECRET" | curl -fsS --max-time 15 --proto =https -H @- "$@" "$URL/decisions"; }
 
 case "${1:-}" in
     get)     [[ -n "${2:-}" ]] || exit 64
-             curl -fsS --max-time 15 -H "Authorization: Bearer $SECRET" --get --data-urlencode "topic=$2" "$URL/decisions" ;;
+             api --get --data-urlencode "topic=$2" ;;
     propose) [[ $# -eq 4 ]] || { echo "usage: client.sh propose <topic> <proposal> <reason>" >&2; exit 64; }
              body="$(python3 -c 'import json,sys; print(json.dumps({"topic": sys.argv[1], "proposal": sys.argv[2], "reason": sys.argv[3], "proposed_by": "agent"}))' "$2" "$3" "$4")"
-             curl -fsS --max-time 15 -H "Authorization: Bearer $SECRET" -H "Content-Type: application/json" -d "$body" "$URL/decisions" ;;
+             api -H "Content-Type: application/json" -d "$body" ;;
     *)       echo "usage: client.sh get <topic> | propose <topic> <proposal> <reason>" >&2; exit 64 ;;
 esac

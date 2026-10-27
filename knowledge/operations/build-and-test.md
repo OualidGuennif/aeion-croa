@@ -28,7 +28,7 @@ it and fails when the committed bundle differs.
 | Knowledge | `tools/knowledge/knowledge-check` | the root |
 | Docs and code links | `tools/knowledge/doc-links` (`--diff origin/main` on a branch) | the root |
 | Comments, file size, caps | `tools/repo-health/repo-health` | the root |
-| Hooks and tools | `python3 .claude/hooks/test_hooks.py`, `python3 tools/knowledge/tests/test_doc_links.py` | the root |
+| Hooks and tools | `python3 .claude/hooks/test_hooks.py`, `python3 tools/knowledge/tests/test_doc_links.py`, `python3 loops/decisions-api/test_client.py` | the root |
 | CROA audit kit | `python3 -m unittest discover -s tools/croa/tests -v` | the root |
 | Efficiency bundle | `tools/efficiency/bundle`, then `git diff --exit-code efficiency/efficiency-bundle.md` | the root |
 
