@@ -50,6 +50,10 @@
       "sha256": "84f2634e341bbd23990039f42327db53c305a9a9b49bfcf0b660de82d422f059"
     },
     {
+      "path": "spec/parts/part-3-policy-as-code-and-lifecycle.md",
+      "sha256": "cef391388f267781507112f573376a1450481653b28c46399f3a6841eade71cc"
+    },
+    {
       "path": "spec/parts/part-4-deployment-models.md",
       "sha256": "f76444a6b109b5c51cb12e1a97fe2a7990b4756e70d3b77901c532389df976c8"
     },
