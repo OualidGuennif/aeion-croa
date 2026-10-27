@@ -22,6 +22,7 @@ loops/        orchestrator.sh (inner, middle, outer, docs, security, watch, retr
 tools/        knowledge-check, doc-links, repo-health, local language-server plugins
 catalog/      source-linked audit questions and pinned CROA provenance
 integrations/ optional croa-audit skill callable from another Factory workspace
+docs/         slides/workflow-human.html, the Factory workflow for humans
 .claude/      hooks, skills, path-scoped rules, hookify examples
 ```
 
