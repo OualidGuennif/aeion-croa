@@ -54,9 +54,18 @@ def doc_sources(doc: Path):
     return out
 
 
+def is_script(path: str) -> bool:
+    """An executable script without a suffix (tools/repo-health/repo-health) starts with a shebang."""
+    try:
+        with open(ROOT / path, "rb") as f:
+            return f.read(2) == b"#!"
+    except OSError:
+        return False
+
+
 def tracked_code():
-    return [p for p in git("ls-files").splitlines()
-            if Path(p).suffix in CODE_SUFFIXES and not p.startswith("knowledge/")]
+    return [p for p in git("ls-files").splitlines() if not p.startswith("knowledge/")
+            and (Path(p).suffix in CODE_SUFFIXES or (not Path(p).suffix and is_script(p)))]
 
 
 def collect():

@@ -96,6 +96,14 @@ check("a Spec pointer to a missing doc", t, [], 1, "RULE L1 src/app.ts:1")
 (t / "src/app.ts").unlink()
 check("a source that disappeared", t, [], 1, "RULE L2 knowledge/components/example.md")
 
+t = repo()
+(t / "src/tool").write_text(f"#!/bin/sh\n# {TAG} knowledge/components/missing.md\n")
+(t / "src/NOTES").write_text(f"{TAG} knowledge/components/missing.md\n")
+sh(t, "git", "add", "src/tool", "src/NOTES")
+check("a script without a suffix is checked by its shebang", t, [], 1, "RULE L1 src/tool:2")
+(t / "src/tool").unlink()
+check("a suffixless file without a shebang is not code", t, [], 0, "PASS")
+
 for f in failures:
     print("FAIL:", f)
 print(f"{passes} passed, {len(failures)} failed")
