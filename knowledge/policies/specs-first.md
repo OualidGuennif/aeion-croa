@@ -38,7 +38,8 @@ before its code is written, has these sections in this order:
 
 - **Doc to code:** the doc's frontmatter `sources` lists the files it describes
   (`resource: ../../src/area/file.ts`). A directory source is checked for existence only.
-- **Code to doc:** a described file carries one header line `Spec: knowledge/<doc>.md`.
+- **Code to doc:** a described file carries one header line `Spec: knowledge/<doc>.md`. Code is a
+  tracked file with a code suffix, or a script without a suffix that starts with a shebang.
 - `tools/knowledge/doc-links` fails when a pointer or a source does not resolve, and with
   `--diff origin/main` when a file changed while a doc covering it did not. Updating the doc, or a
   commit trailer `Docs-Checked: knowledge/<doc>.md -- <why no documented fact changed>`, passes.

@@ -28,6 +28,8 @@ jobs:
           if [[ -n "$BASE_REF" ]]; then ./tools/knowledge/doc-links --diff "origin/$BASE_REF"; else ./tools/knowledge/doc-links; fi
       - run: ./tools/repo-health/repo-health
       - run: python3 tools/knowledge/tests/test_doc_links.py && python3 .claude/hooks/test_hooks.py
+      - name: efficiency bundle is current
+        run: ./tools/efficiency/bundle && git diff --exit-code efficiency/efficiency-bundle.md
 
   audit-tests:
     name: CROA audit tests (${{ matrix.os }}, Python ${{ matrix.python }})

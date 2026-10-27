@@ -74,6 +74,7 @@ every CROA normative requirement.
 
 ## Outputs
 
+- `init --system NAME`: the unassessed packet on stdout; exit 0, or 3 on an invalid name.
 - `validate FILE`: JSON confirming structural and evidence-reference validity; exit 0 on success,
   3 on invalid input. Unknown findings are structurally valid.
 - `report FILE [--format markdown|json]`: versioned source, scope, assessor, findings and evidence
